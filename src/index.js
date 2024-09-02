@@ -5,7 +5,18 @@ dotenv.config({
     path :'./.env'
 })
 
-connection(); //calling the connection function to setup connection with database
+//calling the connection function to setup connection with database
+//here we get a promise with the connection as it is within an async await
+connection()
+.then(()=>{
+    //we make sure if the server is listining
+    app.listen(promise.env.PORT || 3000,()=>{
+        console.log(`sun raha hai server, port no hai =-> ${promise.env.PORT}`)
+    })
+})
+.catch((error)=>{
+    console.log("databse connection FAILED")
+}) 
 
 //making connection with databse in the index file only
     // import mongoose from 'mongoose';
