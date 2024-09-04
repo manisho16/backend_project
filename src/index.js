@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import connection from './db/index.js'
+import {app} from './app.js'
 import dotenv from 'dotenv'
 dotenv.config({
     path :'./.env'
@@ -10,12 +11,13 @@ dotenv.config({
 connection()
 .then(()=>{
     //we make sure if the server is listining
-    app.listen(promise.env.PORT || 3000,()=>{
-        console.log(`sun raha hai server, port no hai =-> ${promise.env.PORT}`)
+    app.listen(process.env.PORT || 3000,()=>{
+        console.log(`sun raha hai server, port no hai =-> ${process.env.PORT}`)
     })
 })
 .catch((error)=>{
-    console.log("databse connection FAILED")
+    console.log("databse connection FAILED, koi ni sun raha HAI")
+    throw error
 }) 
 
 //making connection with databse in the index file only
