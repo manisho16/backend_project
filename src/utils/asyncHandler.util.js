@@ -4,13 +4,15 @@
 // 1 -> using promise 
 // this is a higher order function which takes function as a parameter
 // and return the resolve or catch for the promise
-    // const asyncPromise = (fun)=>{
-    //     (req,res,next)=>{
-    //         Promise
-    //         .resolve(fun(req,res,next))
-    //         .catch((error)=>next(error))
-    //     }
-    // }
+    const asyncPromise = (fun)=>{
+        return (req,res,next)=>{
+            Promise
+            .resolve(fun(req,res,next))
+            .catch((error)=>next(error))
+        }
+    }
+
+    export default asyncPromise
 
 // 2 -> using try and catch
 // here also i use the high order function

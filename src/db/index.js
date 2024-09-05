@@ -10,7 +10,7 @@ const connection = async()=>{
             
         console.log("ended")
     }catch(error){
-        console.log("DATABSE CONNECTION FAILED")
+        console.log("DATABaSE CONNECTION FAILED")
         throw error
     }
 }
