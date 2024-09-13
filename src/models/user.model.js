@@ -1,16 +1,16 @@
 import mongoose,{Schema} from 'mongoose'//by importing schema i dont will have to do mongoose.schema
 import bcrypt from 'bcrypt'
-import {jwt} from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 
 
-const user_schema= new Schema({
+const user_schema = new Schema({
     userName :{
         type :String,
         required :true,
         trim :true,
         lowercase :true,
         unique :true,
-        id :true
+        index :true
     },
     email :{
         type :String,
@@ -32,7 +32,7 @@ const user_schema= new Schema({
     avatar :{
         type :String,
     },
-    coverimg :{
+    cover_img :{
         type :String
     },
     refreshtoken :{
@@ -41,7 +41,7 @@ const user_schema= new Schema({
         trim :true
     },
     watchhistory :[{
-        type :mongoose.Schema.Types.ObjeactId,
+        type :mongoose.Schema.Types.ObjectId,
         ref :'Video'
     }]
 },{timestamps:true})

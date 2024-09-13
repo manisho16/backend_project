@@ -1,9 +1,9 @@
-import multer from "multer";
+import multer from 'multer';
 
 //i make a middle ware using multer to store the file in the diskstoreage
-const store=multer.diskStorage({
+const storage =multer.diskStorage({
     destination :function(req,file,cb){
-        cb(null,"./public/temp")//i specify the temporary destiantion for the file storage
+        cb(null,'./public/temp')//i specify the temporary destination for the file storage
     },
     filename :function(req,file,cb){
         cb(null,file.originalname)
@@ -11,6 +11,6 @@ const store=multer.diskStorage({
 })
 
 //i export the store method
-export const upload =multer({
-    store
+export const local_upload =multer({ //exporting it as upload
+    storage
 })
